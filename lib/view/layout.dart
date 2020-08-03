@@ -1,0 +1,74 @@
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+class Layout {
+  static Widget render(
+      BuildContext context,
+      Widget child, {
+        String title,
+        Widget floatingActionButton,
+        int bottomItemSelected,
+      })
+  {
+    return Scaffold(
+      body: SafeArea(
+        child: Stack(
+          children: <Widget>[
+            Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/images/bg-image.png'),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            Center(
+              child: Text('data'),
+            ),
+            Expanded(child: child),
+          ],
+        ),
+      ),
+      floatingActionButton: floatingActionButton,
+      backgroundColor: Layout.secundary(),
+      bottomNavigationBar: BottomNavigationBar(
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.wb_sunny, size: 30,),
+              title: Text('Inicio'),
+            ),
+            BottomNavigationBarItem(
+              icon: FaIcon(FontAwesomeIcons.solidStar, size: 30,),
+              title: Text('Compras'),
+            ),BottomNavigationBarItem(
+              icon: FaIcon(FontAwesomeIcons.solidHeart, size: 30,),
+              title: Text('Favoritos'),
+            ),BottomNavigationBarItem(
+              icon: FaIcon(FontAwesomeIcons.signOutAlt, size: 30,),
+              title: Text('Sair'),
+            ),
+          ],
+        currentIndex: bottomItemSelected ?? 0,
+        selectedItemColor: (bottomItemSelected == null ) ? Layout.Dark(.3) : Layout.primaryLight(),
+        unselectedItemColor: Layout.Dark(.3),
+        backgroundColor: Layout.Light(),
+        type: BottomNavigationBarType.fixed,
+        onTap: (int i){
+            print('item $i');
+        },
+      ),
+    );
+  }
+
+  static Color primary([double opacity = 1]) => Color(0xff195738).withOpacity(opacity);
+  static Color primaryLight([double opacity = 1]) => Color(0xff007d40).withOpacity(opacity);
+  static Color primaryDark([double opacity = 1]) => Color(0xff123D27).withOpacity(opacity);
+
+  static Color secundary([double opacity = 1]) => Color(0xffddc199).withOpacity(opacity);
+  static Color secundaryLight([double opacity = 1]) => Color(0xffE0CF9D).withOpacity(opacity);
+  static Color secundaryDark([double opacity = 1]) => Color( 0xffce9150).withOpacity(opacity);
+  static Color secundaryHight([double opacity = 1]) => Color(0xffFDAC25).withOpacity(opacity);
+
+  static Color Light([double opacity = 1]) => Color(0xfff0ece1).withOpacity(opacity);
+  static Color Dark([double opacity = 1]) => Color(0xff333333).withOpacity(opacity);
+}
