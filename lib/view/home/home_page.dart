@@ -1,5 +1,5 @@
+import 'package:fl_store/view/home/roda_categoria.dart';
 import 'package:fl_store/view/layout.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -10,6 +10,7 @@ class HomePage extends StatelessWidget {
     var content = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
+        /// PROMOÇÃO -----------------------------------------------------------
         Container(
           decoration: BoxDecoration(
             color: Layout.Light(),
@@ -24,6 +25,8 @@ class HomePage extends StatelessWidget {
         SizedBox(
           height: 20,
         ),
+
+        /// PRODUTOS -----------------------------------------------------------
         Expanded(
           child: Container(
             decoration: BoxDecoration(
@@ -50,11 +53,16 @@ class HomePage extends StatelessWidget {
         ),
         Container(
           height: 90,
-          color: Colors.blue,
+          child: SingleChildScrollView(
+            physics: NeverScrollableScrollPhysics(),
+            /// RODA imp** -----------------------------------------------------
+            child: RodaCategoria(),
+          ),
         )
       ],
-    );//
+    );
 
+    ///
     return Layout.render(
       context,
       content,

@@ -1,4 +1,4 @@
-import 'package:fl_store/view/home_page.dart';
+import 'file:///C:/Users/reall/AndroidStudioProjects/fl_store/lib/view/home/home_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {runApp(MyApp());}
