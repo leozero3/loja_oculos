@@ -21,12 +21,12 @@ class Layout {
               ),
             ),
             Column(
-              children: [
+              children: <Widget>[
                 Container(
                   child: Row(
-                    children: [
+                    children: <Widget>[
                       Padding(
-                        padding: EdgeInsets.fromLTRB(10, 20, 10, 20),
+                        padding: EdgeInsets.fromLTRB(30, 20, 10, 20),
                         child: FaIcon(
                           FontAwesomeIcons.userCog,
                           color: Layout.Light(),
@@ -55,7 +55,6 @@ class Layout {
                 Expanded(child: child)
               ],
             ),
-            Expanded(child: child),
           ],
         ),
       ),

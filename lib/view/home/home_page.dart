@@ -16,16 +16,14 @@ class HomePage extends StatelessWidget {
             color: Layout.Light(),
             borderRadius: BorderRadius.circular(25),
           ),
-          margin: EdgeInsets.only(left: 20, right: 20, top: 70),
+          margin: EdgeInsets.only(left: 20, right: 20),
           padding: EdgeInsets.all(20),
           width: double.infinity,
           height: 100,
           child: Text('Promoções'),
         ),
-        SizedBox(
-          height: 20,
-        ),
 
+        SizedBox(height: 20),
         /// PRODUTOS -----------------------------------------------------------
         Expanded(
           child: Container(
@@ -33,15 +31,14 @@ class HomePage extends StatelessWidget {
               color: Layout.Light(0.7),
               borderRadius: BorderRadius.circular(25),
             ),
-            margin: EdgeInsets.only(left: 20, right: 20, top: 70),
+            margin: EdgeInsets.only(left: 20, right: 20),
             padding: EdgeInsets.all(20),
             width: double.infinity,
             child: Text('Produtos'),
           ),
         ),
-        SizedBox(
-          height: 20,
-        ),
+
+        SizedBox(height: 20),
         Padding(
           padding: const EdgeInsets.only(left: 30),
           child: Text(
@@ -52,7 +49,7 @@ class HomePage extends StatelessWidget {
           ),
         ),
         Container(
-          height: 90,
+          height: 250,
           child: SingleChildScrollView(
             physics: NeverScrollableScrollPhysics(),
             /// RODA imp** -----------------------------------------------------
