@@ -2,6 +2,9 @@ import 'dart:math';
 import 'package:fl_store/view/layout.dart';
 import 'package:flutter/material.dart';
 
+///identificador para girar a roda
+enum SwypeDirection {left, right}
+
 class RodaCategoria extends StatefulWidget {
   @override
   _RodaCategoriaState createState() => _RodaCategoriaState();
@@ -17,48 +20,19 @@ class _RodaCategoriaState extends State<RodaCategoria>
   double _startDeg = 0.0;
   double _endDeg = 0.0;
 
+  double _dragInitial = 0;
+  SwypeDirection _swypeDirection;
+
   /// Model de itens para serem impressos na roda
   final List<Map<String, dynamic>> itens = const [
-    {
-      "id": 1,
-      "icon": Icons.favorite,
-      "text": 'Estilo',
-    },
-    {
-      "id": 2,
-      "icon": Icons.filter_drama,
-      "text": 'Teen',
-    },
-    {
-      "id": 3,
-      "icon": Icons.flight,
-      "text": 'Viagem',
-    },
-    {
-      "id": 4,
-      "icon": Icons.store_mall_directory,
-      "text": 'Trabalho',
-    },
-    {
-      "id": 5,
-      "icon": Icons.style,
-      "text": 'Casual',
-    },
-    {
-      "id": 6,
-      "icon": Icons.supervised_user_circle,
-      "text": 'Executivo',
-    },
-    {
-      "id": 7,
-      "icon": Icons.switch_video,
-      "text": 'Esporte',
-    },
-    {
-      "id": 8,
-      "icon": Icons.thumb_up,
-      "text": 'Classico',
-    }
+    {"id": 1, "icon": Icons.favorite, "text": 'Estilo',},
+    {"id": 2, "icon": Icons.filter_drama, "text": 'Teen',},
+    {"id": 3, "icon": Icons.flight, "text": 'Viagem',},
+    {"id": 4, "icon": Icons.store_mall_directory, "text": 'Trabalho',},
+    {"id": 5, "icon": Icons.style, "text": 'Casual',},
+    {"id": 6, "icon": Icons.supervised_user_circle, "text": 'Executivo',},
+    {"id": 7, "icon": Icons.switch_video, "text": 'Esporte',},
+    {"id": 8, "icon": Icons.thumb_up, "text": 'Classico',}
   ];
 
   @override
@@ -105,13 +79,13 @@ class _RodaCategoriaState extends State<RodaCategoria>
           turns: Tween(begin: _startDeg, end: _endDeg).animate(_controller),
           child: GestureDetector(
             onTap: () {
-              _controller.reset();
-              _startDeg = _endDeg;
-              _endDeg += (1 / itens.length);
-
-              setState(() {
-                _controller.forward();
-              });
+//              _controller.reset();
+//              _startDeg = _endDeg;
+//              _endDeg += (1 / itens.length);
+//
+//              setState(() {
+//                _controller.forward();
+//              });
             },
             child: Container(
               width: MediaQuery
