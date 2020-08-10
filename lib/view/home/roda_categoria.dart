@@ -12,16 +12,25 @@ class RodaCategoria extends StatefulWidget {
 
 class _RodaCategoriaState extends State<RodaCategoria>
     with SingleTickerProviderStateMixin {
+
+  ///controlador da animação
   AnimationController _controller;
 
   //para tween 1 = 360º
   //para transform.rotate = pi * 2 = 360º
 
+
+  ///Atributos para contralar o grau de giro por item
   double _startDeg = 0.0;
   double _endDeg = 0.0;
 
+  ///controle do lado que o usuario esta arrastando a roda
   double _dragInitial = 0;
   SwypeDirection _swypeDirection;
+
+  ///controle do item atual
+  int _currentItem = 0;
+
 
   /// Model de itens para serem impressos na roda
   final List<Map<String, dynamic>> itens = const [
@@ -38,7 +47,7 @@ class _RodaCategoriaState extends State<RodaCategoria>
   @override
   void initState() {
     super.initState();
-
+    /// inicia a animação da roda
     _controller =
         AnimationController(vsync: this, duration: Duration(milliseconds: 300));
   }
@@ -46,6 +55,7 @@ class _RodaCategoriaState extends State<RodaCategoria>
   @override
   void dispose() {
     super.dispose();
+    ///mata a animação
     _controller.dispose();
   }
 
@@ -78,14 +88,61 @@ class _RodaCategoriaState extends State<RodaCategoria>
         RotationTransition(
           turns: Tween(begin: _startDeg, end: _endDeg).animate(_controller),
           child: GestureDetector(
-            onTap: () {
-//              _controller.reset();
-//              _startDeg = _endDeg;
-//              _endDeg += (1 / itens.length);
-//
-//              setState(() {
-//                _controller.forward();
-//              });
+            onTap: () {},
+
+            /// posição inicial da roda
+            onHorizontalDragStart: (details){
+              _dragInitial = details.globalPosition.dx;
+            },
+
+            /// verifica o lado que a roda foi arrastada
+            onHorizontalDragUpdate: (details){
+              _swypeDirection = SwypeDirection.right;
+
+              if((details.globalPosition.dx - _dragInitial) < 0){
+                _swypeDirection = SwypeDirection.left;
+              }
+            },
+
+            /// Aplica animação dependendo do lado que arrastou
+            onHorizontalDragEnd: (details){
+              //(_startDeg) Marca apocisao inicial da roda com a ultima posição que a animação fez
+              _startDeg = _endDeg;
+              _controller.reset(); // reinicia a animação
+
+
+              /// informa o angulo para girar
+              switch (_swypeDirection){
+                case SwypeDirection.left:
+                  _endDeg -= (1 / itens.length);
+
+                  /// troca o indice do item selecionado (item do topo)
+                  _currentItem++;
+                  if(_currentItem > itens.length -1){
+                    _currentItem = 0;
+                  }
+                  break;
+
+                case SwypeDirection.right:
+                  _endDeg += (1 / itens.length);
+
+                  _currentItem--;
+
+                  if(_currentItem < 0){
+                    _currentItem = itens.length -1;
+                  }
+                  break;
+                default:
+              }
+
+              _swypeDirection = null;
+
+              ///dispara a animação
+              setState(() {
+                _controller.forward();
+              });
+
+
             },
             child: Container(
               width: MediaQuery
@@ -112,6 +169,7 @@ class _RodaCategoriaState extends State<RodaCategoria>
     List<Widget> result = [];
 
     result.add(
+      /// roda fundo
       ClipRRect(
         borderRadius: BorderRadius.circular(MediaQuery
             .of(context)
@@ -126,11 +184,16 @@ class _RodaCategoriaState extends State<RodaCategoria>
 
 
     /// icones da roda
-
-    var angle = pi * 2;
+    /// define o fator de angulação de cada item
+    /// ou seja, o quanto cada um vai ser angulado
+    var angleFactor = (pi * 2) / itens.length;
+    var angle = -angleFactor;
 
     for (Map<String, dynamic> item in itens) {
-      angle += (pi * 2) / itens.length;
+
+      /// Aplica fator de angulação
+      angle += angleFactor;
+
       result.add(
         Transform.rotate(
           angle: angle,
@@ -146,35 +209,30 @@ class _RodaCategoriaState extends State<RodaCategoria>
             decoration: BoxDecoration(
               shape: BoxShape.circle,
             ),
-            child: Column(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(top: 20),
-                  child: Icon(
-                    item['icon'],
-                    color: Colors.white,
-                    size: 32,
+              child: Column(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.only(top: 20),
+                    child: Icon(
+                      item['icon'],
+                      color: Colors.white,
+                      size: 32,
+                    ),
                   ),
-                ),
-                Text(
-                  item['text'],
-                  style: Theme
-                      .of(context)
-                      .textTheme
-                      .subtitle2
-                      .copyWith(color: Layout.Light()),
-                ),
-              ],
-            ),
+                  Text(
+                    item['text'],
+                    style: Theme
+                        .of(context)
+                        .textTheme
+                        .subtitle2
+                        .copyWith(color: Layout.Light()),
+                  ),
+                ],
+              ),
           ),
         ),
       );
     }
-
     return result;
   }
-
-
-
-
 }
