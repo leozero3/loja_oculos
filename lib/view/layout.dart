@@ -42,7 +42,7 @@ class Layout {
                             fontStyle: FontStyle.italic),
                       )),
                       Padding(
-                        padding: EdgeInsets.only(right: 20),
+                        padding: EdgeInsets.only(right: 30),
                         child: FaIcon(
                           FontAwesomeIcons.shoppingBag,
                           color: Layout.primaryLight(),
@@ -63,10 +63,7 @@ class Layout {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.wb_sunny,
-              size: 30,
-            ),
+            icon: FaIcon(FontAwesomeIcons.umbrellaBeach,size: 30,),
             title: Text('Inicio'),
           ),
           BottomNavigationBarItem(

@@ -182,7 +182,6 @@ class _RodaCategoriaState extends State<RodaCategoria>
       ),
     );
 
-
     /// icones da roda
     /// define o fator de angulação de cada item
     /// ou seja, o quanto cada um vai ser angulado
