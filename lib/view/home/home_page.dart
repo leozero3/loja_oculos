@@ -1,4 +1,5 @@
 import 'package:fl_store/view/home/destaques.dart';
+import 'package:fl_store/view/home/promo_banners.dart';
 import 'package:fl_store/view/home/roda_categoria.dart';
 import 'package:fl_store/view/layout.dart';
 import 'package:flutter/material.dart';
@@ -14,15 +15,8 @@ class HomePage extends StatelessWidget {
         /// PROMOÇÃO -----------------------------------------------------------
         Expanded(
           flex: 1,
-          child: Container(
-            decoration: BoxDecoration(
-              color: Layout.Light(),
-              borderRadius: BorderRadius.circular(25),
-            ),
-            margin: EdgeInsets.only(left: 20, right: 20),
-            padding: EdgeInsets.all(20),
-            width: double.infinity,
-            child: Text('Promoções'),
+          child: PromoBanners(
+
           ),
         ),
 
