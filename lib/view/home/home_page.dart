@@ -5,7 +5,7 @@ import 'package:fl_store/view/layout.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
-  static String tag = 'home-page';
+  static String tag = '/home-page';
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class HomePage extends StatelessWidget {
           padding: const EdgeInsets.only(left: 30),
           child: Text(
             'Categorias',
-            style: Theme.of(context).textTheme.subtitle2.copyWith(
+            style: Theme.of(context).textTheme.headline6.copyWith(
                   color: Layout.Light(),
                 ),
           ),

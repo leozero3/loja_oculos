@@ -169,7 +169,7 @@ class _RodaCategoriaState extends State<RodaCategoria>
     List<Widget> result = [];
 
     result.add(
-      /// roda fundo
+      /// roda imagem de fundo
       ClipRRect(
         borderRadius: BorderRadius.circular(MediaQuery
             .of(context)
@@ -223,7 +223,7 @@ class _RodaCategoriaState extends State<RodaCategoria>
                     style: Theme
                         .of(context)
                         .textTheme
-                        .subtitle2
+                        .headline6
                         .copyWith(color: Layout.Light()),
                   ),
                 ],

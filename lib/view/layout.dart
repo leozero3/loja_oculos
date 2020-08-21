@@ -36,7 +36,7 @@ class Layout {
                       Expanded(
                           child: Text(
                         'Leonardo Gonzalez',
-                        style: Theme.of(context).textTheme.subtitle2.copyWith(
+                        style: Theme.of(context).textTheme.subtitle1.copyWith(
                             color: Layout.Light(),
                             fontSize: 18,
                             fontStyle: FontStyle.italic),
