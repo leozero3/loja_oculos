@@ -35,6 +35,8 @@ flutter:
   assets:
     - assets/images/bg-image.png
     - assets/images/bg-catwheel.png
+    - assets/images/logo-fundo-marrom.png
+    - assets/images/logo-sem-fundo.png
     #promoçoes
     - assets/images/promocoes/promo-1.png
     - assets/images/promocoes/promo-2.png

@@ -1,5 +1,8 @@
 import 'package:fl_store/view/home/home_page.dart';
 import 'package:fl_store/view/layout.dart';
+import 'package:fl_store/view/login/cadastro_page.dart';
+import 'package:fl_store/view/login/login_page.dart';
+import 'package:fl_store/view/login/login_recuperar.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -23,8 +26,11 @@ class MyApp extends StatelessWidget {
                 color: Layout.Dark(.3),
                 offset: Offset(1, 2)),
           ]))),
-      initialRoute: HomePage.tag,
+      initialRoute: LoginPage.tag,
       routes: {
+        LoginPage.tag: (context) => LoginPage(),
+        LoginRecuperarPage.tag: (context) => LoginRecuperarPage(),
+        CadastroPage.tag: (context) => CadastroPage(),
         HomePage.tag: (context) => HomePage(),
       },
     );

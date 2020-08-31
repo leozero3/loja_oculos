@@ -1,3 +1,5 @@
+import 'package:fl_store/view/home/home_page.dart';
+import 'package:fl_store/view/login/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -96,7 +98,14 @@ class Layout {
         backgroundColor: Layout.Light(),
         type: BottomNavigationBarType.fixed,
         onTap: (int i) {
-          print('item $i');
+          switch (i) {
+            case 0:
+              Navigator.of(context).pushNamed(HomePage.tag);
+              break;
+            case 3:
+              Navigator.of(context).pushNamed(LoginPage.tag);
+              break;
+          }
         },
       ),
     );
