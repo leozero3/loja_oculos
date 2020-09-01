@@ -1,3 +1,4 @@
+import 'package:fl_store/view/favoritos/favoritos_page.dart';
 import 'package:fl_store/view/home/home_page.dart';
 import 'package:fl_store/view/login/login_page.dart';
 import 'package:flutter/material.dart';
@@ -65,7 +66,10 @@ class Layout {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.umbrellaBeach,size: 30,),
+            icon: FaIcon(
+              FontAwesomeIcons.umbrellaBeach,
+              size: 30,
+            ),
             title: Text('Inicio'),
           ),
           BottomNavigationBarItem(
@@ -101,6 +105,9 @@ class Layout {
           switch (i) {
             case 0:
               Navigator.of(context).pushNamed(HomePage.tag);
+              break;
+            case 2:
+              Navigator.of(context).pushNamed(FavoritosPage.tag);
               break;
             case 3:
               Navigator.of(context).pushNamed(LoginPage.tag);

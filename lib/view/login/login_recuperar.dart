@@ -1,3 +1,4 @@
+import 'package:fl_store/view/home/home_page.dart';
 import 'package:fl_store/view/layout.dart';
 import 'package:fl_store/view/login/cadastro_page.dart';
 import 'package:fl_store/view/login/login_page.dart';
@@ -56,25 +57,32 @@ class LoginRecuperarPage extends StatelessWidget {
                         Align(
                           alignment: Alignment.centerRight,
                           child: FlatButton(
-                              onPressed: () => Navigator.of(context).pushNamed(LoginPage.tag),
-
+                              onPressed: () => Navigator.of(context)
+                                  .pushNamed(LoginPage.tag),
                               child: Text(
                                 'Fazer Login',
                                 style: TextStyle(color: Layout.secundaryDark()),
                               )),
                         ),
                         SizedBox(height: 20),
-                        SizedBox(height: 50, width: double.infinity,
+                        SizedBox(
+                          height: 50,
+                          width: double.infinity,
                           child: FlatButton(
-                              onPressed: () => null,
+                              onPressed: () => Navigator.of(context)
+                                  .popAndPushNamed(HomePage.tag),
                               color: Layout.primary(),
-                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(7)),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(7)),
                               child: Text(
                                 'Recuperar Senha',
-                                style: Theme.of(context).textTheme.bodyText2.copyWith(
-                                  color: Layout.Light(),
-                                  fontSize: 18,
-                                ),
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyText2
+                                    .copyWith(
+                                      color: Layout.Light(),
+                                      fontSize: 18,
+                                    ),
                               )),
                         )
                       ],
@@ -85,7 +93,8 @@ class LoginRecuperarPage extends StatelessWidget {
                     child: Align(
                       alignment: Alignment.bottomRight,
                       child: FlatButton(
-                          onPressed: ()=> Navigator.of(context).pushNamed(CadastroPage.tag),
+                          onPressed: () =>
+                              Navigator.of(context).pushNamed(CadastroPage.tag),
                           child: Text('Não tem uma conta? Cadastre-se')),
                     ),
                   )

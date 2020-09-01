@@ -1,3 +1,4 @@
+import 'package:fl_store/view/favoritos/favoritos_page.dart';
 import 'package:fl_store/view/home/home_page.dart';
 import 'package:fl_store/view/layout.dart';
 import 'package:fl_store/view/login/cadastro_page.dart';
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
         LoginRecuperarPage.tag: (context) => LoginRecuperarPage(),
         CadastroPage.tag: (context) => CadastroPage(),
         HomePage.tag: (context) => HomePage(),
+        FavoritosPage.tag: (context) => FavoritosPage(),
       },
     );
   }

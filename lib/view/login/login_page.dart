@@ -1,3 +1,4 @@
+import 'package:fl_store/view/home/home_page.dart';
 import 'package:fl_store/view/layout.dart';
 import 'package:fl_store/view/login/cadastro_page.dart';
 import 'package:fl_store/view/login/login_recuperar.dart';
@@ -73,7 +74,7 @@ class LoginPage extends StatelessWidget {
                         SizedBox(height: 20),
                         SizedBox(height: 50, width: double.infinity,
                           child: FlatButton(
-                              onPressed: () => null,
+                              onPressed: () => Navigator.of(context).popAndPushNamed(HomePage.tag),
                               color: Layout.primary(),
                               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(7)),
                               child: Text(

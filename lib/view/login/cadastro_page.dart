@@ -1,3 +1,4 @@
+import 'package:fl_store/view/home/home_page.dart';
 import 'package:fl_store/view/layout.dart';
 import 'package:fl_store/view/login/login_page.dart';
 import 'package:flutter/material.dart';
@@ -81,7 +82,7 @@ class CadastroPage extends StatelessWidget {
                           height: 50,
                           width: double.infinity,
                           child: FlatButton(
-                              onPressed: () => null,
+                              onPressed: () => Navigator.of(context).popAndPushNamed(HomePage.tag),
                               color: Layout.primary(),
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(7)),
